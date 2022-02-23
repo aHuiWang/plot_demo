@@ -72,3 +72,4 @@ t-SNE可视化，提供的例子是一个画embedding随训练变化的例子
 ```
 draw_tsne.py
 ```
+![avatar](pics/tsne.png)
