@@ -41,7 +41,24 @@ plot_bar_and_line()
 ```
 ![avatar](pics/bar_and_line.png)
 
+### 折线截断图
+
+```
+plt_broken()
+```
+
+![avatar](pics/broken_line.png)
+
+### 柱状截断图
+
+```
+bar_broken()
+```
+
+![avatar](pics/broken_bar.png)
+
 ### 散点图
+
 ```
 plot_scatters()
 ```
@@ -61,6 +78,13 @@ plot_ablation_bar_in_one()
 ![avatar](pics/ablation.png)
 
 ### 组合图2
+
+双坐标轴折线组合图，可以更加直观的观察四个组合图在两个不同指标上的变化趋势
+
+![avatar](pics/multi_line.png)
+
+### 组合图3
+
 可以用在验证某方法具有泛化性，然后所有模型试一遍。难点在于一个字图省掉横坐标，且上下对齐。（其实我也不知道这样有啥好，嘻嘻）
 ```
 plot_two_bar_in_one()
