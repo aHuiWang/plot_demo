@@ -456,11 +456,104 @@ def plot_two_bar_in_one():
     fig.savefig('./pics/two_bars.png', format='png')
 
 
-plot_bar()
-plot_line()
-plot_multi_bar()
-plot_bar_and_line()
-plot_scatters()
-plot_hetmap()
-plot_ablation_bar_in_one()
-plot_two_bar_in_one()
+def plot_twice(x,y_1,y_2,save_name,loc,x_label):
+    # matplotlib.use('PDF')
+
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (16.0, 4)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+
+    ax1 = plt.subplot(1, 4, 1)  # 添加子图参数第一个和第二个分别是子图的行数和列数，第三个参数是子图的序号
+    ax2 = plt.subplot(1, 4, 2)
+    ax3 = plt.subplot(1, 4, 3)
+    ax4 = plt.subplot(1, 4, 4)
+
+
+    ax1.set_title('Sports')  # 设置第一个子图的x轴标签
+    ax1.set_xlabel(x_label)
+    ax1.set_ylabel("HR@20")
+    width = range(len(x))
+    line1=ax1.plot(width, y_1[0],c="c",label="HR@20",marker="o")
+    # ax1.legend("upper right")
+    ax1.set_xticks(range(len(x)),x)
+    ax1_1=ax1.twinx()
+    ax1_1.set_ylabel('NDCG@20')  # 设置第一个子图的y轴标签
+    line2=ax1_1.plot(width,y_2[0],c="orange",marker="D",linestyle="--",label="NDCG@20")
+    # ax1_1.legend("upper right")
+    lines=line1+line2
+    labs=[l.get_label() for l in lines]
+    ax1.legend(lines,labs,loc=loc)
+    plt.tight_layout()  # 使子图适应作图区域避免坐标轴标签信息显示混乱
+
+
+
+    ax2.set_title('Beauty')  # 设置第一个子图的x轴标签
+    ax2.set_xlabel(x_label)
+    ax2.set_ylabel("HR@20")
+    line1 = ax2.plot(width, y_1[1], c="c",marker="o",label="HR@20")
+    ax2.set_xticks(range(len(x)), x)
+    # ax1.legend("upper left")
+    ax2_1 = ax2.twinx()
+    ax2_1.set_ylabel('NDCG@20')  # 设置第一个子图的y轴标签
+    line2 = ax2_1.plot(width, y_2[1], c="orange", marker="D",linestyle="--",label="NDCG@20")
+    # ax1_1.legend("upper right")
+    lines = line1 + line2
+    labs = [l.get_label() for l in lines]
+    ax2.legend(lines, labs, loc=loc)
+    plt.tight_layout()  # 使子图适应作图区域避免坐标轴标签信息显示混乱
+
+
+    ax3.set_title('Toys')  # 设置第一个子图的x轴标签
+    ax3.set_xlabel(x_label)
+    ax3.set_ylabel("HR@20")
+    line1 = ax3.plot(width, y_1[2], c="c",marker="o",label="HR@20")
+    ax3.set_xticks(range(len(x)), x)
+    # ax1.legend("upper left")
+    ax3_1 = ax3.twinx()
+    ax3_1.set_ylabel('NDCG@20')  # 设置第一个子图的y轴标签
+    line2 = ax3_1.plot(width, y_2[2], c="orange", marker="D",linestyle="--",label="NDCG@20")
+    # ax1_1.legend("upper right")
+    lines = line1 + line2
+    labs = [l.get_label() for l in lines]
+    ax3.legend(lines, labs, loc=loc)
+    plt.tight_layout()  # 使子图适应作图区域避免坐标轴标签信息显示混乱
+
+
+
+    ax4.set_title('ML-1M')  # 设置第一个子图的x轴标签
+    ax4.set_xlabel(x_label)
+    ax4.set_ylabel("HR@20")
+    line1 = ax4.plot(width, y_1[3], c="c",marker="o",label="HR@20")
+    # ax1.legend("upper left")
+    ax4.set_xticks(range(len(x)), x)
+    ax4_1 = ax4.twinx()
+    ax4_1.set_ylabel('NDCG@20')  # 设置第一个子图的y轴标签
+    line2 = ax4_1.plot(width, y_2[3], c="orange", marker="D",linestyle="--",label="NDCG@20")
+    # ax1_1.legend("upper right")
+    lines = line1 + line2
+    labs = [l.get_label() for l in lines]
+    ax4.legend(lines, labs, loc=loc)
+    plt.tight_layout()  # 使子图适应作图区域避免坐标轴标签信息显示混乱
+    plt.savefig(save_name+".png")
+
+
+
+dropout_r = [0.1, 0.2, 0.3, 0.4, 0.5]
+y_1_d = [[0.0705, 0.0738, 0.0765, 0.0775, 0.0794], [0.1171, 0.1260, 0.1289, 0.1302, 0.1289],
+         [0.1219, 0.1269, 0.1307, 0.1344, 0.1368], [0.4518, 0.4389, 0.4260, 0.3985, 0.3846]]
+y_2_d = [[0.0347, 0.0359, 0.0380, 0.0382, 0.0393], [0.0614, 0.0648, 0.0669, 0.0672, 0.0663],
+         [0.0666, 0.0695, 0.0716, 0.0735, 0.0736], [0.2297, 0.2207, 0.2124, 0.1920, 0.1802]]
+if __name__ == '__main__':
+    plot_bar()
+    plot_line()
+    plot_multi_bar()
+    plot_bar_and_line()
+    plot_scatters()
+    plot_hetmap()
+    plot_ablation_bar_in_one()
+    plot_two_bar_in_one()
+    plot_twice(dropout_r, y_1_d, y_2_d, "dropout_t", "best", "dropout rate ")
+
