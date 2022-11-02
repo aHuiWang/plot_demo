@@ -16,7 +16,9 @@ fig.savefig('./pics/{name}.pdf', format='pdf')
 
 [**单行热力图 & 可以挑热力图的颜色**](https://www.codenong.com/cs106384659/)
 
-[**其他参考图例**](https://mp.weixin.qq.com/s/mFXjyeLzbDGdT4jyAxHDjw)
+[**其他参考图例1**](https://mp.weixin.qq.com/s/mFXjyeLzbDGdT4jyAxHDjw)
+
+[**其他参考图例2**](https://mp.weixin.qq.com/s/cJV7WQlD15egW-fWJYJBdQ)
 
 ### 折线图
 ```
