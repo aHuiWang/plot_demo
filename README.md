@@ -15,6 +15,9 @@ fig.savefig('./pics/{name}.pdf', format='pdf')
 [**这里可以挑 color 和 marker样式**](https://cloud.tencent.com/developer/article/1540478)
 
 [**单行热力图 & 可以挑热力图的颜色**](https://www.codenong.com/cs106384659/)
+
+[**其他参考图例**](https://mp.weixin.qq.com/s/mFXjyeLzbDGdT4jyAxHDjw)
+
 ### 折线图
 ```
 plot_line()
@@ -22,6 +25,7 @@ plot_line()
 ![avatar](pics/line.png)
 
 ### 柱状图
+
 ```
 plot_bar()
 ```
@@ -34,12 +38,29 @@ plot_multi_bar()
 ```
 ![avatar](pics/multi_bar.png)
 
+### 多柱状图（有重叠）
+
+```
+plot_multi_bar_1()
+```
+
+![avatar](pics/multi_bar_1.png)
+
 ### 柱状+折线
+
 有时单条线或单个柱子太单调了
 ```
 plot_bar_and_line()
 ```
 ![avatar](pics/bar_and_line.png)
+
+### 2D柱状图
+
+```
+plot_2D()
+```
+
+![avatar](pics/hist_2D.png)
 
 ### 折线截断图
 
@@ -64,13 +85,39 @@ plot_scatters()
 ```
 ![avatar](pics/scatter.png)
 
+### 箱线图
+
+```
+plot_box()
+```
+
+![avatar](pics/plot_box.png)
+
+### 小提琴图
+
+```
+plot_violin()
+```
+
+![avatar](pics/plot_violin.png)
+
 ### 热力图
+
 ```
 plot_hetmap()
 ```
 ![avatar](pics/heatmap.png)
 
+### 3D图像
+
+```
+plot_3D()
+```
+
+![avatar](pics/plot_3D.png)
+
 ### 组合图1
+
 喜欢用来画多个数据集的ablation,当然也可以画成4个小图在tex里拼装，但可能图之前的缝隙会比较大
 ```
 plot_ablation_bar_in_one()
@@ -97,3 +144,18 @@ t-SNE可视化，提供的例子是一个画embedding随训练变化的例子
 draw_tsne.py
 ```
 ![avatar](pics/tsne.png)
+
+### 快速修改图例参数
+
+```
+# 安装包 
+pip install pylustrator
+# 导入
+import pylustrator
+# 开启控件
+pylustrator.start()
+# 注意需要配合使用plt.show()来进行使用
+```
+
+![avatar](pics/pylustrator.png)
+

@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/9/5 23:04
-# @Author  : Hui Wang
+# @Time    : 2022/10/2
+# @Author  : XiuYuan Qin
 
 import numpy as np
 import matplotlib
+import seaborn as sns
+import pylustrator
+pylustrator.start()
+
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
 
@@ -537,7 +541,115 @@ def plot_twice(x,y_1,y_2,save_name,loc,x_label):
     labs = [l.get_label() for l in lines]
     ax4.legend(lines, labs, loc=loc)
     plt.tight_layout()  # 使子图适应作图区域避免坐标轴标签信息显示混乱
-    plt.savefig(save_name+".png")
+    plt.savefig("./pics/%s.png"%save_name)
+
+
+def plot_box(save_name):
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (12, 5)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+    f,(ax)=plt.subplots(1,1,figsize=(12,4))
+    plt.title("Plot_Box",fontsize=20)
+    data_dic={"x":[i for i in range(10)]*10,"y":np.arange(0.5,100,1.0)}
+    # x=np.arange(0.,10,0.1)
+    # y=np.arange(0.5,100,1.0)
+    # print(len(x),len(y))
+    sns.boxplot("x","y",data=data_dic,ax=ax)
+    ax.set_xlabel("X",size=20,alpha=0.8)
+    ax.set_ylabel("Y",size=20,alpha=0.8)
+    plt.savefig("./pics/%s.png" % save_name)
+
+def plot_violin(save_name):
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (12, 5)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+    f,(ax)=plt.subplots(1,1,figsize=(12,4))
+    plt.title("Plot_Box",fontsize=20)
+    data_dic={"x":[i for i in range(10)]*10,"y":np.arange(0.5,100,1.0)}
+    sns.violinplot("x","y",data=data_dic,ax=ax)
+    ax.set_xlabel("X",size=20,alpha=0.8)
+    ax.set_ylabel("Y",size=20,alpha=0.8)
+    plt.savefig("./pics/%s.png" % save_name)
+
+
+def plot_3D(save_name):
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (12, 5)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+    fig=plt.figure(figsize=(8,6))
+    ax=fig.add_subplot(111,projection="3d")
+    xs=np.arange(0.,1,0.01)
+    ys=np.arange(0.5,100,1)
+    zs=np.arange(1,101,1)
+    ax.scatter(xs,ys,zs,s=50,alpha=0.6,edgecolor="w")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Z")
+    plt.savefig("./pics/%s.png" % save_name)
+
+def plot_marker(save_name):
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (12, 5)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+
+    rng=np.random.RandomState(0)
+    for marker in ['o','.',",",'x','+','v','^','<','>','s','d','p','*','-']:
+        plt.plot(rng.rand(5),rng.rand(5),marker,label="<=marker")
+    plt.legend()
+    plt.xlim(0,1.8)
+    plt.savefig("./pics/%s.png" % save_name)
+
+
+def plot_multi_bar_1(save_name):
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (12, 5)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+
+    x1=np.random.normal(0,0.8,1000)
+    x2=np.random.normal(-2,1,1000)
+    x3=np.random.normal(3,2,1000)
+    kwargs=dict(histtype="stepfilled",alpha=0.3,density=True,bins=40)
+    plt.hist(x1,**kwargs)
+    plt.hist(x2,**kwargs)
+    plt.hist(x3,**kwargs)
+    plt.savefig("./pics/%s.png" % save_name)
+
+def plot_2D(save_name):
+
+
+    plt.rcParams['font.family'] = ['SimHei']  # 因为图中有中文避免中文显示乱码
+    plt.rcParams['figure.figsize'] = (12, 5)
+
+    plt.rcParams['ps.useafm'] = True
+    plt.rcParams['pdf.use14corefonts'] = True
+    plt.rcParams['text.usetex'] = True
+
+    mean=[0,0]
+    cov=[[1,1],[1,2]]
+    x,y=np.random.multivariate_normal(mean,cov,10000).T
+
+    plt.hist2d(x,y,bins=30,cmap="Blues")
+    cb=plt.colorbar()
+    cb.set_label("counts in bin")
+
+    plt.savefig("./pics/%s.png" % save_name)
+    plt.show()
+
 
 
 
@@ -556,4 +668,10 @@ if __name__ == '__main__':
     plot_ablation_bar_in_one()
     plot_two_bar_in_one()
     plot_twice(dropout_r, y_1_d, y_2_d, "dropout_t", "best", "dropout rate ")
+    plot_box("plot_box")
+    plot_violin("plot_violin")
+    plot_3D("plot_3D")
+    plot_marker("plot_marker")
+    plot_multi_bar_1("multi_bar_1")
+    plot_2D("hist_2D")
 
