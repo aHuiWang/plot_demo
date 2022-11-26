@@ -140,6 +140,14 @@ plot_two_bar_in_one()
 ```
 ![avatar](pics/two_bars.png)
 
+### 使用patchworklib包构建组合图
+```
+patchworklib_plot.py
+```
+![avatar](pics/ax1234.png)
+![avatar](pics/ax12345.png)
+![avatar](pics/g0123.png)
+![avatar](pics/g1234.png)
 ### 向量可视化
 t-SNE可视化，提供的例子是一个画embedding随训练变化的例子
 ```
