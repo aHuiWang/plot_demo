@@ -10,6 +10,8 @@ fig.savefig('./pics/{name}.pdf', format='pdf')
 ## 一些链接
 [**matplotlib命令与格式：图例legend语法及设置**](https://blog.csdn.net/helunqu2017/article/details/78641290)
 
+[**matplotlib绘画：图例与书籍**](https://github.com/rougier/scientific-visualization-book)
+
 [**matplotlib命令与格式：标题(title),标注(annotate),文字说明(text)**](https://blog.csdn.net/helunqu2017/article/details/78659490)
 
 [**这里可以挑 color 和 marker样式**](https://cloud.tencent.com/developer/article/1540478)
