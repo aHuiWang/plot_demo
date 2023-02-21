@@ -22,6 +22,8 @@ fig.savefig('./pics/{name}.pdf', format='pdf')
 
 [**其他参考图例2**](https://mp.weixin.qq.com/s/cJV7WQlD15egW-fWJYJBdQ)
 
+[**60种可视化图表总结**](https://mp.weixin.qq.com/s/T4G3wo5Zm67i4MBtdqdO6g)
+
 ### 折线图
 ```
 plot_line()
