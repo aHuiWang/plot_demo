@@ -29,6 +29,8 @@ fig.savefig('./pics/{name}.pdf', format='pdf')
 [**latex常用图标绘制**](https://github.com/MLNLP-World/Paper-Picture-Writing-Code)
 
 [**50种常用的matplotlib可视化图**](https://mp.weixin.qq.com/s/zBnkwf26ril9v3UML7sKAg)
+
+[**matplotlib操作指南**](https://mp.weixin.qq.com/s/HMgBFW8xcF9MF2OKFLzMJg)
 ### 折线图
 ```
 plot_line()
