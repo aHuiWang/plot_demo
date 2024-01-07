@@ -31,6 +31,8 @@ fig.savefig('./pics/{name}.pdf', format='pdf')
 [**50种常用的matplotlib可视化图**](https://mp.weixin.qq.com/s/zBnkwf26ril9v3UML7sKAg)
 
 [**matplotlib操作指南**](https://mp.weixin.qq.com/s/HMgBFW8xcF9MF2OKFLzMJg)
+
+[**高端图绘制**](https://mp.weixin.qq.com/s/TrYw-r8UpILVvWNEDDLwQw)
 ### 折线图
 ```
 plot_line()
